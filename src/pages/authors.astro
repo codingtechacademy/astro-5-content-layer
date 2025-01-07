@@ -1,0 +1,12 @@
+---
+import AuthorCard from "../components/AuthorCard.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Liste dse auteurs">
+  <h1>Liste des auteurs</h1>
+  <ul class="card-list">
+    <AuthorCard name="Thibaud" job="Développeur" />
+    <AuthorCard name="Correntin" job="Journaliste" />
+  </ul>
+</Layout>

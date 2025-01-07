@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo_astro.png";
+---
+
+<header>
+  <section class="header-container">
+    <a href="/" class="site-title">
+      <Image src={logo} width={30} alt="Blog Astro 5" />
+      <span>Blog Astro 5</span>
+    </a>
+
+    <nav class="header-nav">
+      <a href="/authors" class="header-link">Auteurs</a>
+    </nav>
+  </section>
+</header>
+
+<style>
+  header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, sans-serif;
+    background-color: var(--front-background);
+    border-bottom: 1px solid var(--background);
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--desktop-breakpoint);
+    width: 100%;
+    padding: 0 0.8rem;
+  }
+
+  .site-title {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 1.2rem;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .site-title img {
+    margin-right: 0.5rem;
+  }
+
+  .header-link {
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 1.2rem;
+  }
+
+  .header-link:hover {
+    text-decoration: underline;
+  }
+</style>

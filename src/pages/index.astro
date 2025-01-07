@@ -1,11 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PostCard from "../components/PostCard.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Astro 5 Content Layer">
+  <h1>Liste des articles</h1>
+  <ul class="card-list">
+    <PostCard
+      title="Premier Post"
+      description="Contenu du premier post"
+      href="/posts/post-1"
+    />
+    <PostCard
+      title="Deuxième Post"
+      description="Contenu du deuxième post"
+      href="/posts/post-2"
+    />
+  </ul>
 </Layout>
