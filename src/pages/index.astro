@@ -1,20 +1,22 @@
 ---
+import { getCollection } from "astro:content";
 import PostCard from "../components/PostCard.astro";
 import Layout from "../layouts/Layout.astro";
+
+const posts = await getCollection("posts");
 ---
 
 <Layout title="Astro 5 Content Layer">
   <h1>Liste des articles</h1>
   <ul class="card-list">
-    <PostCard
-      title="Premier Post"
-      description="Contenu du premier post"
-      href="/posts/post-1"
-    />
-    <PostCard
-      title="Deuxième Post"
-      description="Contenu du deuxième post"
-      href="/posts/post-2"
-    />
+    {
+      posts.map(({ id, data: { title, description } }) => (
+        <PostCard
+          title={title}
+          description={description}
+          href={`/blog/${id}`}
+        />
+      ))
+    }
   </ul>
 </Layout>
