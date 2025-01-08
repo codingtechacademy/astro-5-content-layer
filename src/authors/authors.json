@@ -2,11 +2,14 @@
   {
     "id": "1",
     "name": "Thibaud",
-    "job": "Développeur"
+    "job": "Développeur",
+    "country": "RE"
+
   },
   {
     "id": "2",
     "name": "Correntin",
-    "job": "Journaliste"
+    "job": "Journaliste",
+    "country": "CN"
   }
 ]

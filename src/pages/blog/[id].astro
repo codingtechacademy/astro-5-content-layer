@@ -17,6 +17,8 @@ const { post } = Astro.props;
 
 const author = await getEntry(post.data.author);
 
+const country = await getEntry(author.data.country);
+
 const { Content } = await render(post);
 ---
 
@@ -24,6 +26,10 @@ const { Content } = await render(post);
   <Content />
   <h2>Auteur</h2>
   <ul class="card-list">
-    <AuthorCard name={author.data.name} job={author.data.job} />
+    <AuthorCard
+      name={author.data.name}
+      job={author.data.job}
+      country={country.data.country}
+    />
   </ul>
 </Layout>

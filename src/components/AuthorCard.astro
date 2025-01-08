@@ -1,9 +1,11 @@
 ---
 import type { Author } from "../models/author";
 
-interface Props extends Author {}
+interface Props extends Author {
+  country?: string;
+}
 
-const { name, job } = Astro.props;
+const { name, job, country } = Astro.props;
 ---
 
 <li>
@@ -13,6 +15,7 @@ const { name, job } = Astro.props;
   <p>
     {job}
   </p>
+  {country && <p>{country}</p>}
 </li>
 <style>
   li {
