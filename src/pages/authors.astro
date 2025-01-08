@@ -1,12 +1,18 @@
 ---
+import { getCollection } from "astro:content";
 import AuthorCard from "../components/AuthorCard.astro";
 import Layout from "../layouts/Layout.astro";
+
+const authors = await getCollection("authors");
 ---
 
 <Layout title="Liste dse auteurs">
   <h1>Liste des auteurs</h1>
   <ul class="card-list">
-    <AuthorCard name="Thibaud" job="Développeur" />
-    <AuthorCard name="Correntin" job="Journaliste" />
+    {
+      authors.map(({ data: { name, job } }) => (
+        <AuthorCard name={name} job={job} />
+      ))
+    }
   </ul>
 </Layout>
