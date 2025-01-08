@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import AuthorCard from "../../components/AuthorCard.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -12,9 +14,16 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+
+const author = await getEntry(post.data.author);
+
 const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title}>
   <Content />
+  <h2>Auteur</h2>
+  <ul class="card-list">
+    <AuthorCard name={author.data.name} job={author.data.job} />
+  </ul>
 </Layout>
